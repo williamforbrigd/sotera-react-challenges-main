@@ -57,7 +57,7 @@ export const TodoList = () => {
   const handleAdd = () => {
     const newTodos = [...todos];
     const isFound = newTodos.find((element) => element.text === todoInput);
-    if (isFound === undefined) {
+    if (isFound === undefined && todoInput !== "") {
       newTodos.push({ text: todoInput, checked: false });
     }
     setTodos(newTodos);

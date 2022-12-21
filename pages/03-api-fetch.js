@@ -35,7 +35,10 @@ export const ApiFetch = () => {
     refetch();
   };
 
-  const { data, refetch } = useQuery("user", fetchUser, { manual: true });
+  const { data, refetch } = useQuery("user", fetchUser, {
+    manual: true,
+    refetchOnWindowFocus: false,
+  });
   const user = data;
 
   return (
@@ -49,7 +52,7 @@ export const ApiFetch = () => {
         <div className={styles.resultWindow}>
           <h2>User info</h2>
 
-          {!data && <p>No user fetched...</p>}
+          {!user && <p>No user fetched...</p>}
 
           {user && user.name && user.dob && user.location && (
             <p>
